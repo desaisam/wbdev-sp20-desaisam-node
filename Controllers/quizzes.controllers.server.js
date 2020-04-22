@@ -1,16 +1,13 @@
-const quizService = require('../Services/quizzes.services.server')
-
-
+const quizzesService = require("../services/quizzes.services.server");
 module.exports = function(app) {
-
-
-  app.get("/hello", (req, res) => res.json("Hello World"));
-
-
-  app.get("/api/quizzes", (req, res) => res.json(quizService.findAllQuizzes()));
-
-  app.get("/api/quizzes/:qid", (req, res) =>
-    res.json(quizService.findQuizById(req.params["qid"]))
+  app.get("/api/quizzes", (req, res) =>
+    quizzesService.findAllQuizzes().then(allQuizzes => res.send(allQuizzes))
+  );
+  app.get("/api/quizzes/:qzid", (req, res) =>
+    quizzesService.findQuizById(req.params["qzid"]).then(quiz => res.json(quiz))
   );
 
+  app.get('/api/quizzes/:qid/questions', (req, res) =>
+  quizzesService.findQuizById(req.params['qid'])
+      .then(quiz => res.json(quiz.questions)))
 };
