@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://heroku_lfw9z0vq:c2neti22rb4q2pjp40jegblj0@ds041486.mlab.com:41486/heroku_lfw9z0vq',
+mongoose.connect('mongodb://admin:admin@ds041486.mlab.com:41486/heroku_lfw9z0vq',
 { useNewUrlParser: true, useUnifiedTopology: true })
 
 
