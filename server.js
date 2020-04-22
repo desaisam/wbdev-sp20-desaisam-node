@@ -3,8 +3,12 @@ const express = require("express");
 const app = express();
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/whiteboard-desaisam-sp20',
+mongoose.connect('mongodb://heroku_lfw9z0vq:c2neti22rb4q2pjp40jegblj0@ds041486.mlab.com:41486/heroku_lfw9z0vq',
 { useNewUrlParser: true, useUnifiedTopology: true })
+
+
+// mongoose.connect('mongodb://localhost:27017/whiteboard-desaisam-sp20',
+// { useNewUrlParser: true, useUnifiedTopology: true })
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
